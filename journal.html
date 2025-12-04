@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Journal - Weekly Entries</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+  <header>
+    <h1>My Learning Journal</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="journal.html">Journal</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="about.html">About me</a>
+      <button id="theme-toggle" type="button">Dark mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Weekly Learning Journal</h2>
+
+    <section>
+      <h3>Week 1</h3>
+      <p>This week, I created a <strong>PWA-based Temperature Converter App</strong>. I learned how to use HTML, CSS, and
+        JavaScript to build a simple web application that can also be installed on a device as a Progressive Web App.</p>
+    </section>
+
+    <section>
+      <h3>Week 2</h3>
+      <p>This week, I built my <strong>Learning Journal Website</strong>. I learned about mobile-first design and how
+        to structure a multi-page website using HTML and CSS. This journal will record my progress throughout the module.</p>
+    </section>
+
+    <section>
+      <h3>Week 3</h3>
+      <p>I added JavaScript interactivity with a reusable navigation bar and dark/light theme toggle. This improved both
+        the look and usability of my site.</p>
+    </section>
+
+    <section>
+      <h3>Week 4</h3>
+      <p>I used the Storage API to save new journal entries, the Validation AP to check
+        user input, and a third-party quote API to load motivational quotes on my homepage.</p>
+    </section>
+<section> 
+  <h4> Week 4</h4>
+  <p> This week, I acquired knowledge on utilizing various JavaScript APIs to enhance the interactivity of my 
+website. I implemented the Storage API to store new journal entries in the browser through localStorage, 
+ensuring that my notes remain visible even after the page is refreshed. Additionally, I employed the Browser 
+Validation API to verify that the form is completed correctly prior to saving an entry, which displays an error 
+message if any field is left empty or is too brief.
+I integrated a Third-Party API into my homepage that retrieves a motivational quote whenever the “Load 
+Quote” button is clicked. These functionalities enhanced the interactivity and realism of my learning journal.</p>
+</section>
+
+<section> 
+  <h5> Week 5 </h5>
+  <p> This week was all about python and Json files and 
+    connect them to my learning journak project. Instead of storing data 
+    only in the browser with LocalStorage, I used Python to create and update a reflections.json file, 
+    which works more like a small database. I wrote a scripy that asks for the week, title, and
+    reflcetion and then saves the information inside the JSON file. thius helped mw understand how 
+    bakend data can be stored in a permanent way. I also updated my pWA so it cna read this JSON file 
+    using JavaScipt's Fetch() function. MY journak page now loads the reflections fom the backend and 
+    displays them automatically. To make the data more interactive, I added a filter feature that shows 
+    reflections were loaded. THis made the journal easier to use and more dynamic. Working with JSON and
+     Pytthon togther was a good introduction to how real japplications stire and manage infromation.
+    It showed me the difference between storage (loaclStorage) and backend storage (JSON files).
+    Overall, this week heled me understand how a website can combine both technologies to hanlde
+    data mote effectively.</p>
+</section>
+<section> 
+<h> Week 6 </h>
+<p> This week I wored on connectiong my Learning Journal PWA 
+  to a real backend using Flask. Instead of only loading JSON files directly in the browser, I created piper API routes in Flaskn that let my website fetch, add,
+   and delete reflections stoed on the server.
+  I learned how the backend and frontend communicate suing HTTP methods, 
+  and how important this connection is for making a website work with real, dynamic data. To 
+  practice this, I first tested the backend locally by running flask_app.py in the terminal. Once everything worked, i deployed the backend to PythonAnywhere so it could
+  be accessed online. This allowed my PWA to load reflections from the URL/api/reflections and interact with data in real time. I also added a 'delete' feature, whuch sends 
+  a DELETE request to Flask and remives a reflcetion by index. 
+  This made my journey feel much more interactive and realistic. Once difficulty i faced was setting up the correct folder structure PythonAnywhere
+  especially putting my HTML, in templates and my CSS/JS in static. Overall, this week taught me the value of having a backend. It made my PWA more powerful and helped me understand how full-stack applications work.
+  how modern web apps load manage data. It was a big step toward building a complete full-stack application. 
+</p>
+</section>
+<section> 
+  <h> Week 7</h>
+  <p> This Week , I completed the final stage of my Learning Journal by turning it into a fully installable
+    Progressive Web App. I added a maifest.json fils so the app can be installed on desktp and mobile devices, and I created service worker that caches 
+  my pages, JavaScript files, and images. Thsia allows how offline-first applications wrok.
+I used the Fetch API and Cache Storage API so that Reflections from the Flask backend can still be loaded from the cache when the device is offline. Deploying the final dersion taught me hoe frontend, backend, and PWA features all fit together. Overall, this week helped me finish the project as a complete, installable, and offline-capable web application.
+</p>
+</section>
+
+    <section>
+      <h3>Add a New Journal Entry</h3>
+      <form id="journal-form" novalidate>
+        <div class="form-row">
+          <label for="week">Week number:</label>
+          <input type="number" id="week" name="week" min="1" max="14" required>
+        </div>
+
+        <div class="form-row">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required minlength="3">
+        </div>
+
+        <div class="form-row">
+          <label for="content">Your reflection:</label>
+          <textarea id="content" name="content" required minlength="20"></textarea>
+        </div>
+
+        <button type="submit">Save entry</button>
+        <p id="form-message" class="message"></p>
+      </form>
+    </section>
+
+    <section>
+      <h3>Saved Entries</h3>
+      <div id="saved-entries"></div>
+    </section>
+
+   
+   
+      <div class="form-row">
+        <label for="filter-week">Filter by week (optional):</label>
+        <input type="number" id="filter-week" min="1" max="14" placeholder="e.g. 3">
+
+        <button id="filter-button" type="button">Apply filter</button>
+        <button id="clear-filter" type="button">Clear filter</button>
+      </div>
+
+      <p id="json-count"></p>
+
+  
+      <div id="json-reflections"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Ishwor Dhamala · Learning Journal</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="storage.js"></script>
+  <script src="browser.js"></script>
+  <script src="thirdparty.js"></script>
+  <script src="json.js"></script>
+
+</body>
+</html>
