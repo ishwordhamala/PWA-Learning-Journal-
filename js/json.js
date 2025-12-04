@@ -1,5 +1,5 @@
 
-const API_BASE = "https://ishwordhamala.pythonanywhere.com";
+const API_BASE = "https://ishwor2316248.pythonanywhere.com";
 //const API_BASE = "http://127.0.0.1:5000"//
 // DOM references
 const jsonContainer = document.getElementById("json-reflections");
